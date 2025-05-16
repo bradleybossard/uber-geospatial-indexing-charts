@@ -72,26 +72,6 @@ for month in months:
 # Add layer control to map
 folium.LayerControl().add_to(m)
 
-# # Inject custom JS for 'Hide All Layers' button
-# hide_layers_js = '''
-# <script>
-# function hideAllLayers() {
-#     var overlays = document.querySelectorAll('.leaflet-control-layers-overlays input[type=checkbox]');
-#     overlays.forEach(function(cb) { if(cb.checked) cb.click(); });
-# }
-# var btn = document.createElement('button');
-# btn.innerHTML = 'Hide All Layers';
-# btn.style.position = 'absolute';
-# btn.style.top = '10px';
-# btn.style.right = '10px';
-# btn.style.zIndex = 1000;
-# btn.onclick = hideAllLayers;
-# document.body.appendChild(btn);
-# </script>
-# '''
-
-# m.get_root().html.add_child(folium.Element(hide_layers_js))
-
 # Save map
 m.save('h3_index_map.html')
 print("Map saved to h3_index_map.html")
