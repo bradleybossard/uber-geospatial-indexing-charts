@@ -46,12 +46,13 @@ for month in months:
     for h in fare_by_cell.index:
         boundary = h3.cell_to_boundary(h)
         fare_sum = fare_by_cell[h]
+        popup_text = f"Month: {month}<br>Hex ID: {h}<br>Total Fare: ${fare_sum:.2f}"
         folium.Polygon(
             locations=boundary,
             color=color_map[month],
             fill=True,
             fill_opacity=0.2,
-            popup=f"Total Fare: ${fare_sum:.2f}"
+            popup=popup_text
         ).add_to(layer)
     layer.add_to(m)
 
